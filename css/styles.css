@@ -1,0 +1,123 @@
+:root {
+    --label-width: 70mm;
+    --label-height: 36mm;
+}
+
+label {
+    font-weight: 600;
+}
+input {
+    width: 7rem;
+    padding-block: .5rem;
+}
+button {
+    font-weight: 600;
+    padding: .5rem 1rem;
+    margin-inline: 1rem;
+}
+.container-input {
+    text-align: center;
+    background-color: antiquewhite;
+    padding-inline: 1rem;
+    padding-block: 2rem;
+}
+.inputs {
+    padding: .5rem;
+}
+.buttons {
+    padding: .5rem;
+}
+.err {
+    color: brown;
+    font-weight: 600;
+    background-color: pink;
+    width: fit-content;
+    border-radius: 10px;
+    padding-inline: 1rem;
+    padding-block: .5rem;
+    display: none;
+}
+.msg {
+    color: green;
+    font-weight: 600;
+    background-color: greenyellow;
+    width: fit-content;
+    border-radius: 10px;
+    padding-inline: 1rem;
+    padding-block: .5rem;
+    display: none;
+}
+
+/*LABELS*/
+.label-container {
+    width: 210mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 0px;
+    column-gap: 0px;
+}
+
+.label {
+    width: var(--label-width);
+    height: var(--label-height);
+    /* border: 1px solid black; */
+    position: relative;
+}
+
+.name {
+    position: absolute;
+    top: 2mm;
+    left: 2mm;
+    font-size: 4mm;
+}
+
+.size {
+    position: absolute;
+    top: 9.5mm;
+    left: 2mm;
+
+    font-weight: 600;
+    font-size: 150%;
+}
+
+.qty {
+    position: absolute;
+    top: 15.5mm;
+    left: 2mm;
+}
+
+.tmx {
+    font-size: .5rem;
+}
+
+.barcode {
+    z-index: 10;
+    position: absolute;
+    max-width: 66mm;
+    bottom:2mm;
+    left: 2mm;
+}
+
+.img {
+    z-index: -1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* max-height: 40%; */
+    max-height: 50%;
+    position: absolute;
+    bottom: 47.26px;
+    right: 5%;
+    display: block;
+    /* border: 1px solid black; */
+}
+
+.qr {
+    z-index: 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    max-height: 14mm;
+    position: absolute;
+    bottom: 13.5mm;
+    left: 2mm;
+    display: block;
+}
