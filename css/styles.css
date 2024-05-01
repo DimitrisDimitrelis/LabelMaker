@@ -65,9 +65,7 @@ button {
 }
 
 .name {
-    /* border: 1px solid black; */
     position: absolute;
-    /* max-width: 44mm; */
     top: 2mm;
     left: 2mm;
     font-size: 4mm;
@@ -101,7 +99,6 @@ button {
 }
 
 .img {
-    /* z-index: -1; */
     background-size: contain;
     background-repeat: no-repeat;
     height: 10mm;

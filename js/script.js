@@ -83,7 +83,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 
     function generateLabel(data, inputData) {
-        let barcodeWidth = 66;
         let i = 0;
         if (globalCount !== 0) {
           i = globalCount;
@@ -152,9 +151,6 @@ window.addEventListener('DOMContentLoaded', async () => {
                 lineColor: "#000000",
                 fontOptions: "bold"
             });
-            let elementWidth = document.getElementById(`barcode-${i}`).clientWidth;
-            console.log(elementWidth)
-            // document.getElementById(`barcode-${i}`).style.height = (elementWidth / 0.5);
         }
         globalCount = Number(inputData.count);
     }
