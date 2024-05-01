@@ -83,6 +83,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 
     function generateLabel(data, inputData) {
+        let barcodeWidth = 66;
         let i = 0;
         if (globalCount !== 0) {
           i = globalCount;
@@ -129,34 +130,31 @@ window.addEventListener('DOMContentLoaded', async () => {
             qty.appendChild(tmx);
 
             //Generate Image
-            let img = document.createElement('img');
-            if (data.din) {
-                label.appendChild(img);
-                img.id = `img-${i}`;
-                img.classList.add('img');
-                img.src = `./img/svg/${data.din}.svg`;
-            // } else {
-            //     img.style.display = 'none';
-            }
+            // let img = document.createElement('img');
+            // label.appendChild(img);
+            // img.id = `img-${i}`;
+            // img.classList.add('img');
+            // img.src = `./img/svg/912.svg`;
 
+            let actualWidth = (barcodeWidth/data.barcode.length)*0.5
             //Generate Barcode
             JsBarcode(document.getElementById(`barcode-${i}`), data.barcode, {
                 format: "CODE128",
-                displayValue: false,
-                fontSize: 12,
                 height: 50,
-                padding: 0,
+                displayValue: true,
+                fontSize: 14,
+                padding: 0.5,
                 margin: 0,
-                textMargin: 0.4,
+                textMargin: 0.6,
                 textAlign: "left",
-                textPosition: "bottom",
-                // width: 1,
+                textPosition: "top",
                 background: "#ffffff",
                 lineColor: "#000000",
                 fontOptions: "bold"
             });
-            // let barcode = document.getElementById(`barcode-${i}`);
-            // barcode.classList.add('barcode');
+            let elementWidth = document.getElementById(`barcode-${i}`).clientWidth;
+            console.log(elementWidth)
+            // document.getElementById(`barcode-${i}`).style.height = (elementWidth / 0.5);
         }
         globalCount = Number(inputData.count);
     }
