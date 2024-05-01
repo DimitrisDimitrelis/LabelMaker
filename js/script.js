@@ -135,7 +135,6 @@ window.addEventListener('DOMContentLoaded', async () => {
             // img.classList.add('img');
             // img.src = `./img/svg/912.svg`;
 
-            let actualWidth = (barcodeWidth/data.barcode.length)*0.5
             //Generate Barcode
             JsBarcode(document.getElementById(`barcode-${i}`), data.barcode, {
                 format: "CODE128",
