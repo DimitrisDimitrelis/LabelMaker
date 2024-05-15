@@ -67,14 +67,14 @@ button {
 .name {
     position: absolute;
     top: 2mm;
-    left: 2mm;
+    left: 14mm;
     font-size: 4mm;
 }
 
 .size {
     position: absolute;
     top: 11mm;
-    left: 2mm;
+    left: 14mm;
 
     font-weight: 600;
     font-size: 150%;
@@ -92,22 +92,31 @@ button {
 
 .barcode {
     position: absolute;
-    width: 66mm;
+    width: 54mm;
     bottom:2mm;
-    left: 2mm;
+    right: 2mm;
     align-self: baseline;
+}
+
+.barcode-text {
+    position: absolute;
+    top: 17.3mm;
+    left: 14mm;
+    font-size: 3.5mm;
+    font-size: .7rem;
+    
 }
 
 .img {
     background-size: contain;
     background-repeat: no-repeat;
-    height: 10mm;
+    height: 32mm;
     width: auto;
     position: absolute;
-    top: 7mm;
-    right: 2mm;
+    top: 2mm;
+    left: 2mm;
     display: block;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .qr {

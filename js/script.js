@@ -128,18 +128,25 @@ window.addEventListener('DOMContentLoaded', async () => {
             tmx.innerHTML = 'ΤΜΧ.';
             qty.appendChild(tmx);
 
-            //Generate Image
-            // let img = document.createElement('img');
-            // label.appendChild(img);
-            // img.id = `img-${i}`;
-            // img.classList.add('img');
-            // img.src = `./img/svg/912.svg`;
+            // Generate Image
+            let img = document.createElement('img');
+            label.appendChild(img);
+            img.id = `img-${i}`;
+            img.classList.add('img');
+            img.src = `./img/svg/933.svg`;
+
+            //Generate Barcode Text
+            let bartext = document.createElement('p');
+            label.appendChild(bartext);
+            bartext.id = `bartext-${i}`;
+            bartext.classList.add('barcode-text');
+            bartext.innerHTML = data.barcode;
 
             //Generate Barcode
             JsBarcode(document.getElementById(`barcode-${i}`), data.barcode, {
                 format: "CODE128",
-                height: 50,
-                displayValue: true,
+                height: 65,
+                displayValue: false,
                 fontSize: 14,
                 padding: 0.5,
                 margin: 0,
