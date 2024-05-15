@@ -8,7 +8,13 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
     let dataJson = await getData();
     dataJson = dataJson.data;
-    console.log(dataJson)
+
+    async function getSvgData() {
+        const response = await fetch('./json/svg.json');
+        const dataRawJson = await response.json();
+        return dataRawJson;
+    }
+    let dataSvg = await getSvgData();
     
     function selectPromptElems() {
         const PROMPTS = {
@@ -60,7 +66,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             return errFlag;
         }
         let flag = false;
-        let i = 1375;
+        let i = 0;
         do {
             console.log('inside for...');
             if (inputData.code === dataJson[i].BARCODE) {
@@ -131,11 +137,15 @@ window.addEventListener('DOMContentLoaded', async () => {
             qty.appendChild(tmx);
 
             // Generate Image
-            let img = document.createElement('img');
-            label.appendChild(img);
-            img.id = `img-${i}`;
-            img.classList.add('img');
-            img.src = `./img/svg/933.svg`;
+            for (let svg_count = 0; svg_count < dataSvg.length; svg_count++) {
+                if (data['ΥΠΟΚΑΤΗΓΟΡΙΑ'].includes(dataSvg[svg_count])) {
+                    let img = document.createElement('img');
+                    label.appendChild(img);
+                    img.id = `img-${i}`;
+                    img.classList.add('img');
+                    img.src = `./img/svg/${dataSvg[svg_count]}.svg`;
+                }
+            }
 
             //Generate Barcode Text
             let bartext = document.createElement('p');
