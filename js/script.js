@@ -2,11 +2,13 @@
 
 window.addEventListener('DOMContentLoaded', async () => { 
     async function getData() {
-        const response = await fetch('./json/local.json');
+        const response = await fetch('./json/data.json');
         const dataRawJson = await response.json();
         return dataRawJson;
     }
     let dataJson = await getData();
+    dataJson = dataJson.data;
+    console.log(dataJson)
     
     function selectPromptElems() {
         const PROMPTS = {
@@ -61,7 +63,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         let i = 1375;
         do {
             console.log('inside for...');
-            if (inputData.code === dataJson[i].barcode) {
+            if (inputData.code === dataJson[i].BARCODE) {
                 flag = true;
             }
             i++;
@@ -75,7 +77,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     function buildData(dataJson, inputData) {
         let data = {};
         for (let i = 0; i < dataJson.length; i++) {
-            if (inputData.code === dataJson[i].barcode) {
+            if (inputData.code === dataJson[i].BARCODE) {
                 data = dataJson[i]
             }
         }
@@ -91,8 +93,8 @@ window.addEventListener('DOMContentLoaded', async () => {
     
         for (i = globalCount; i < inputData.count; i++) {
 
-            const name_array = data.name.split(" ")
-            const subcat_array = data.subcat.split(" ")
+            const name_array = data['ΠΕΡΙΓΡΑΦΗ'].split(" ")
+            const subcat_array = data['ΥΠΟΚΑΤΗΓΟΡΙΑ'].split(" ")
 
             subcat_array.forEach(element => {
                 const index = name_array.indexOf(element);
@@ -108,7 +110,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             name.id = `name-${i}`;
             name.classList.add('name');
             label.appendChild(name);
-            name.innerHTML = data.subcat;
+            name.innerHTML = data['ΥΠΟΚΑΤΗΓΟΡΙΑ'];
 
             //Generate Size
             let size = document.createElement('p');
@@ -140,10 +142,10 @@ window.addEventListener('DOMContentLoaded', async () => {
             label.appendChild(bartext);
             bartext.id = `bartext-${i}`;
             bartext.classList.add('barcode-text');
-            bartext.innerHTML = data.barcode;
+            bartext.innerHTML = data['ΚΩΔΙΚΟΣ'];
 
             //Generate Barcode
-            JsBarcode(document.getElementById(`barcode-${i}`), data.barcode, {
+            JsBarcode(document.getElementById(`barcode-${i}`), data['BARCODE'], {
                 format: "CODE128",
                 height: 65,
                 displayValue: false,

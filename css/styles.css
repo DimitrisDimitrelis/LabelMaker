@@ -110,12 +110,14 @@ button {
 .img {
     background-size: contain;
     background-repeat: no-repeat;
-    height: 32mm;
+    max-height: 32mm;
+    max-width: 12mm;
     width: auto;
     position: absolute;
     top: 2mm;
     left: 2mm;
     display: block;
+    align-self:self-start;
     /* border: 1px solid black; */
 }
 
