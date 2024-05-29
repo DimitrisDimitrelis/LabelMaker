@@ -138,12 +138,21 @@ window.addEventListener('DOMContentLoaded', async () => {
 
             // Generate Image
             for (let svg_count = 0; svg_count < dataSvg.length; svg_count++) {
-                if (data['ΥΠΟΚΑΤΗΓΟΡΙΑ'].includes(dataSvg[svg_count])) {
+                // if (data['ΥΠΟΚΑΤΗΓΟΡΙΑ'].includes(` ${dataSvg[svg_count]}`)) {
+                // if (data['ΥΠΟΚΑΤΗΓΟΡΙΑ'].indexOf(` ${dataSvg[svg_count]}`) !== -1) {
+                if (dataSvg[svg_count].slice(-1) == data['ΥΠΟΚΑΤΗΓΟΡΙΑ'].slice(-1) && data['ΥΠΟΚΑΤΗΓΟΡΙΑ'].indexOf(` ${dataSvg[svg_count]}`) !== -1) {
                     let img = document.createElement('img');
                     label.appendChild(img);
                     img.id = `img-${i}`;
                     img.classList.add('img');
                     img.src = `./img/svg/${dataSvg[svg_count]}.svg`;
+                } else if (data['ΥΠΟΚΑΤΗΓΟΡΙΑ'].indexOf(` ${dataSvg[svg_count]} `) !== -1) {
+                    let img = document.createElement('img');
+                    label.appendChild(img);
+                    img.id = `img-${i}`;
+                    img.classList.add('img');
+                    img.src = `./img/svg/${dataSvg[svg_count]}.svg`;
+
                 }
             }
 
