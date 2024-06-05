@@ -58,20 +58,20 @@ button {
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 0px;
     column-gap: 0px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .label-inner {
     width: var(--label-width-inner);
     /* height: var(--label-height); */
-    border: 1px solid black;
+    /* border: 1px solid black; */
     position: relative;
 }
 
 .label-outer {
     width: var(--label-width-outer);
     /* height: var(--label-height); */
-    border: 1px solid black;
+    /* border: 1px solid black; */
     position: relative;
 }
 
@@ -129,7 +129,7 @@ button {
     top: 2mm;
     left: 2mm;
     display: block;
-    align-self:self-start;
+    align-self: self-start;
     /* border: 1px solid black; */
 }
 
