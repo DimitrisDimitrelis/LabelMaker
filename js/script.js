@@ -49,7 +49,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             return errFlag;
         }
         ///Count check
-        if (inputData.count > 24 || isNaN(inputData.count)) {
+        if (inputData.count > 21 || isNaN(inputData.count)) {
             PROMPTS.errCount.style.display = 'block';
             return errFlag;
         }

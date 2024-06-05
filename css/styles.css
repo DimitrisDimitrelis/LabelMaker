@@ -1,6 +1,7 @@
 :root {
-    --label-width: 70mm;
-    --label-height: 36mm;
+    --label-width-outer: 65mm;
+    --label-width-inner: 70mm;
+    /* --label-height: 42.42mm; */
 }
 
 label {
@@ -50,17 +51,27 @@ button {
 
 /*LABELS*/
 .label-container {
+    padding: 5mm 5mm 5mm 5mm;
     width: 210mm;
+    height: 297mm;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 0px;
     column-gap: 0px;
+    border: 1px solid black;
 }
 
-.label {
-    width: var(--label-width);
-    height: var(--label-height);
-    /* border: 1px solid black; */
+.label-inner {
+    width: var(--label-width-inner);
+    /* height: var(--label-height); */
+    border: 1px solid black;
+    position: relative;
+}
+
+.label-outer {
+    width: var(--label-width-outer);
+    /* height: var(--label-height); */
+    border: 1px solid black;
     position: relative;
 }
 
@@ -108,10 +119,11 @@ button {
 }
 
 .img {
+    z-index: -10;
     background-size: contain;
     background-repeat: no-repeat;
     max-height: 32mm;
-    max-width: 10mm;
+    max-width: 8mm;
     width: auto;
     position: absolute;
     top: 2mm;
@@ -119,6 +131,10 @@ button {
     display: block;
     align-self:self-start;
     /* border: 1px solid black; */
+}
+
+.label-outer .img {
+    left: 0mm
 }
 
 .qr {
